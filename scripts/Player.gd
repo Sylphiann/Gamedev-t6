@@ -1,15 +1,13 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export(int) var speed = 400
-export(int) var GRAVITY = 1200
-export(int) var jump_speed = -400
+@export var speed: int = 400
+@export var GRAVITY: int = 1000
+@export var jump_speed: int = -600
 
 const UP = Vector2(0, -1)
 
-var velocity = Vector2()
-
-onready var animator = self.get_node("Animator")
-onready var sprite = self.get_node("Sprite")
+@onready var animator = self.get_node("Animator")
+@onready var sprite = self.get_node("Sprite2D")
 
 
 func get_input():
@@ -25,7 +23,10 @@ func get_input():
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
 	get_input()
-	velocity = move_and_slide(velocity, UP)
+	set_velocity(velocity)
+	set_up_direction(UP)
+	move_and_slide()
+	velocity = velocity
 
 
 func _process(delta):
