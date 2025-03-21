@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://5vxt4shar3r7"]
+
+[ext_resource type="Script" path="res://scripts/LifeCounter.gd" id="1_04vve"]
+[ext_resource type="FontFile" uid="uid://g0e4g4332ft0" path="res://assets/Fonts/Raw/CC Wild Words Roman.ttf" id="1_bahkk"]
+
+[node name="LifeCounter" type="MarginContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_bahkk")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("1_04vve")

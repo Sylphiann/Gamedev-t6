@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbecqe237c5t3"]
+
+[ext_resource type="FontFile" uid="uid://g0e4g4332ft0" path="res://assets/Fonts/Raw/CC Wild Words Roman.ttf" id="1_m0cw6"]
+[ext_resource type="Script" path="res://scripts/New_Button.gd" id="2_bk63l"]
+
+[node name="GameOver" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.48999
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.196078, 0.223529, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -185.51
+offset_bottom = -276.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 245
+theme_override_constants/margin_top = 170
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_m0cw6")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER :("
+
+[node name="TryAgainButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_m0cw6")
+theme_override_font_sizes/font_size = 30
+text = "Try Again?"
+underline = 1
+script = ExtResource("2_bk63l")
+scene_to_load = "Level 1"
+
+[node name="MainMenuButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_m0cw6")
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+underline = 1
+script = ExtResource("2_bk63l")
+scene_to_load = "mainmenu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TryAgainButton" to="MarginContainer/VBoxContainer/TryAgainButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="MarginContainer/VBoxContainer/MainMenuButton" method="_on_pressed"]
